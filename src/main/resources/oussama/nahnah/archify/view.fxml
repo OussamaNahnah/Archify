@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="786.0" stylesheets="@Application.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oussama.nahnah.archify.Controller">
+    <tabs>
+        <Tab fx:id="tab1" text="Départ">
+            <content>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="Env_add" layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#Env_fun_add" prefWidth="155.0" text="Ajouter" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <Button layoutX="538.0" layoutY="33.0" mnemonicParsing="false" onAction="#Env_continue_with_excel" prefWidth="155.0" text="Continue avec excel" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="43.0" />
+                        <ChoiceBox fx:id="Env_dropdown_year" layoutX="22.0" layoutY="14.0" prefHeight="25.0" prefWidth="155.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <ChoiceBox fx:id="Env_dropdown_category" layoutX="22.0" layoutY="45.0" prefHeight="25.0" prefWidth="155.0" value="Déstinatiare" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="43.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="destinataire" />
+                                    <String fx:value="DG" />
+                                    <String fx:value="VOB" />
+                                    <String fx:value="DRHM" />
+                                    <String fx:value="DFC" />
+                                    <String fx:value="IGES" />
+                                    <String fx:value="SETS" />
+                                    <String fx:value="CG" />
+                                    <String fx:value="GOMO" />
+                                    <String fx:value="AUDIT" />
+                                    <String fx:value="ETG" />
+                                    <String fx:value="STE" />
+                                    <String fx:value="DDI" />
+                                    <String fx:value="SIE" />
+                                    <String fx:value="MAJ" />
+                                    <String fx:value="FEXP" />
+                                    <String fx:value="SNTF" />
+                                    <String fx:value="DRIVERS" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                        <TextField fx:id="Env_search_TextField" alignment="CENTER" layoutX="112.0" layoutY="14.0" prefHeight="25.0" prefWidth="407.0" promptText="Recherche" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="10.0" />
+                        <HBox alignment="CENTER" layoutX="112.0" layoutY="45.0" prefHeight="26.0" prefWidth="407.0" spacing="30.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="43.0">
+                            <children>
+                                <RadioButton fx:id="Env_chockbox_all" mnemonicParsing="false" selected="true" text="Tout">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="searcgrp1" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="Env_chockbox_referance" mnemonicParsing="false" text="Réferance" toggleGroup="$searcgrp1" />
+                                <RadioButton fx:id="Env_chockbox_date" mnemonicParsing="false" text="Date" toggleGroup="$searcgrp1" />
+                                <RadioButton fx:id="Env_chockbox_object" mnemonicParsing="false" text="Objét" toggleGroup="$searcgrp1" />
+                            </children>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </HBox>
+                  <Pagination fx:id="Env_pagination" layoutY="75.0" prefHeight="500.0" prefWidth="786.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="76.0" />
+                        <TableView fx:id="Env_table" layoutX="53.0" layoutY="149.0" prefHeight="449.0" prefWidth="786.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="76.0">
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#Env_fun_refresh" text="Actialiser" />
+                                    </items>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#Env_fun_openfilelocation" text="La location de fichier" />
+                                    </items>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#Env_fun_edit" text="modifier" />
+                                    </items>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#Env_fun_setfile" text="définir le document" />
+                                    </items>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#Env_fun_delete" text="supprimer" />
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                            <columns>
+                                <TableColumn fx:id="Env_clm_id" prefWidth="75.0" text="id" visible="false" />
+                                <TableColumn fx:id="Env_clm_referance" maxWidth="100.0" prefWidth="90.0" text="réferance" />
+                                <TableColumn fx:id="Env_clm_date" prefWidth="90.0" text="Date" />
+                                <TableColumn fx:id="Env_clm_recipient" prefWidth="90.0" text="Déstinataire" />
+                                <TableColumn fx:id="Env_clm_object" prefWidth="800.0" text="objét" />
+                                <TableColumn fx:id="Env_clm_ficher" maxWidth="20.0" prefWidth="79.0" text="fichier" />
+                            </columns>
+
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="tab2" text="Arrivée">
+            <content>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="Rec_add" layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#Rec_fun_add" prefWidth="170.0" text="Ajouter" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <Button layoutX="538.0" layoutY="33.0" mnemonicParsing="false" onAction="#Rec_continue_with_excel" prefWidth="170.0" text="Continue avec excel" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="43.0" />
+                        <ChoiceBox fx:id="Rec_dropdown_year" layoutX="22.0" layoutY="14.0" prefHeight="28.0" prefWidth="75.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <ChoiceBox fx:id="Rec_dropdown_type" layoutX="95.0" layoutY="10.0" prefHeight="28.0" prefWidth="90.0" value="Categorie" AnchorPane.leftAnchor="90.0">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="categorie" />
+                           <String fx:value="SET1" />
+                           <String fx:value="SET2" />
+                           <String fx:value="SET3" />
+
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                        <ChoiceBox fx:id="Rec_dropdown_category" layoutX="22.0" layoutY="45.0" prefHeight="25.0" prefWidth="170.0" value="Expediteur" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="43.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Expediteur" />
+                                    <String fx:value="DG" />
+                                    <String fx:value="VOB" />
+                                    <String fx:value="DRHM" />
+                                    <String fx:value="DFC" />
+                                    <String fx:value="IGES" />
+                                    <String fx:value="SETS" />
+                                    <String fx:value="CG" />
+                                    <String fx:value="GOMO" />
+                                    <String fx:value="AUDIT" />
+                                    <String fx:value="ETG" />
+                                    <String fx:value="STE" />
+                                    <String fx:value="DDI" />
+                                    <String fx:value="SIE" />
+                                    <String fx:value="MAJ" />
+                                    <String fx:value="FEXP" />
+                                    <String fx:value="SNTF" />
+                                    <String fx:value="DRIVERS" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+
+                        <TextField fx:id="Rec_search_TextField" alignment="CENTER" layoutX="112.0" layoutY="14.0" prefHeight="25.0" prefWidth="407.0" promptText="Recherche" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="10.0" />
+                        <HBox alignment="CENTER" layoutX="112.0" layoutY="45.0" prefHeight="26.0" prefWidth="407.0" spacing="30.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="43.0">
+                            <children>
+                                <RadioButton fx:id="Rec_chockbox_all" mnemonicParsing="false" selected="true" text="Tout">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="searcgrp2" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="Rec_chockbox_referance" mnemonicParsing="false" text="Réferance" toggleGroup="$searcgrp2" />
+                                 <RadioButton fx:id="Rec_chockbox_oldreferance" mnemonicParsing="false" text="L'ancien réferance" toggleGroup="$searcgrp2" />
+                                <RadioButton fx:id="Rec_chockbox_date" mnemonicParsing="false" text="Date" toggleGroup="$searcgrp2" />
+                                <RadioButton fx:id="Rec_chockbox_object" mnemonicParsing="false" text="Objét" toggleGroup="$searcgrp2" />
+                            </children>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </HBox>
+                        <Pagination fx:id="Rec_pagination" layoutY="75.0" prefHeight="496.0" prefWidth="786.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0" />
+                        <TableView fx:id="Rec_table" layoutX="53.0" layoutY="75.0" prefHeight="446.0" prefWidth="786.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#Rec_fun_refresh" text="Actialiser" />
+                                    </items>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#Rec_fun_openfilelocation" text="La location de fichier" />
+                                    </items>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#Rec_fun_edit" text="modifier" />
+                                    </items>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#Rec_fun_setfile" text="définir le document" />
+                                    </items>
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#Rec_fun_delete" text="supprimer" />
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                            <columns>
+                                <TableColumn fx:id="Rec_clm_id" prefWidth="75.0" text="id" visible="false" />
+                                <TableColumn fx:id="Rec_clm_referance" maxWidth="100.0" prefWidth="90.0" text="réferance" />
+                        <TableColumn fx:id="Rec_clm_old_referance" prefWidth="75.0" text="Ancien réferance" />
+                                <TableColumn fx:id="Rec_clm_date" prefWidth="90.0" text="Date" />
+                                <TableColumn fx:id="Rec_clm_sender" prefWidth="90.0" text="Expéditer" />
+                                <TableColumn fx:id="Rec_clm_object" prefWidth="800.0" text="objét" />
+                                <TableColumn fx:id="Rec_clm_ficher" maxWidth="20.0" prefWidth="79.0" text="fichier" />
+                            </columns>
+
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

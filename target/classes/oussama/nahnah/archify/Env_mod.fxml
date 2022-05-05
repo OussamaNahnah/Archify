@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="539.0" prefWidth="730.0" stylesheets="@Application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oussama.nahnah.archify.EnvMod_controller">
+   <children>
+      <Label alignment="CENTER" layoutX="337.0" layoutY="30.0" text="Ajouter Un Envoi" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0" />
+      <TextField fx:id="Env_mod_reference" layoutX="299.0" layoutY="37.0" promptText="PSG/DP/N°/Année" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="110.0" />
+      <Button fx:id="Env_update" layoutX="100.0" layoutY="302.0" mnemonicParsing="false" onAction="#Env_func_update" text="modifier" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="340.0" />
+      <Label layoutX="100.0" layoutY="93.0" text="Réferance" AnchorPane.topAnchor="90.0" />
+      <Label layoutX="100.0" layoutY="135.0" text="Date" AnchorPane.topAnchor="140.0" />
+      <Label layoutX="100.0" layoutY="175.0" text="Déstinataire" AnchorPane.topAnchor="190.0" />
+      <Label layoutX="100.0" layoutY="215.0" text="objét" AnchorPane.topAnchor="240.0" />
+      <Button fx:id="Env_filepicker" layoutX="100.0" layoutY="270.0" mnemonicParsing="false" onAction="#Env_func_opendocumentlocation" prefHeight="25.0" prefWidth="530.0" text="ouvrire la location de document" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="310.0" />
+      <ChoiceBox fx:id="Env_mod_recipient" layoutX="164.0" layoutY="192.0" prefHeight="25.0" prefWidth="466.0" value="Choisi Déstinatiare" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="210.0">
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="DG" />
+            <String fx:value="VOB" />
+            <String fx:value="DRHM" />
+            <String fx:value="DFC" />
+            <String fx:value="IGES" />
+            <String fx:value="SETS" />
+            <String fx:value="CG" />
+            <String fx:value="GOMO" />
+            <String fx:value="AUDIT" />
+            <String fx:value="ETG" />
+            <String fx:value="STE" />
+            <String fx:value="DDI" />
+            <String fx:value="SIE" />
+            <String fx:value="MAJ" />
+            <String fx:value="FEXP" />
+            <String fx:value="SNTF" />
+            <String fx:value="DRIVERS" />
+         </FXCollections>
+      </items>
+      </ChoiceBox>
+      <DatePicker fx:id="Env_mod_date" editable="false" layoutX="93.0" layoutY="153.0" promptText="date" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="160.0" />
+      <TextArea fx:id="Env_mod_object" layoutX="79.0" layoutY="255.0" prefHeight="40.0" prefWidth="530.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="260.0" />
+   </children>
+</AnchorPane>
