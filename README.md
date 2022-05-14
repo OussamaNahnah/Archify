@@ -1,7 +1,7 @@
 # Archify
 
 
-Assalam alaykoum , **Archify** program is made by Oussama nahnah for archif sent and reseived documents , with feuters like vanced searchs and export EXEL list.
+Assalam alaykoum , ** Program Archify **  is made by [Oussama Nahnah](https://www.linkedin.com/in/oussamanahnah/). for sended and reseived documents archif, with Features like : Advanced searchs and export EXEL list.
 
 ![alt text](https://github.com/OussamaNahnah/Archify/blob/main/Snapshots/screen1.png)
 ![alt text](https://github.com/OussamaNahnah/Archify/blob/main/Snapshots/screen2.png)
@@ -13,10 +13,10 @@ Assalam alaykoum , **Archify** program is made by Oussama nahnah for archif sent
 - Exel
 
 ## installation setup:
--  install jdk 18 (requered)
--  install excel (recdemended)
--  copy the program folder **Archify** to local destination (requered)
--  sqlite browser (advanced)
+-  install jdk 18 (required).
+-  install excel (recommended).
+-  copy the program folder **Archify** to local destination (required).
+-  sqlite browser (advanced).
 
 ## architecture
 ```mermaid
@@ -30,15 +30,21 @@ C -->  G(REC folder)
 D -->  k(db.db)
 D -->  l(db_empty)
 ```
-- Archif folder : is the container of program
-- Archify.jar : is the excutible program
-- Documents folder : contain to other folder ENV folder for sended document And REC folder for the receive document
-- DataBase folder : contain db.db file wich is the sqlite3 database and db-empty.db file wich is an empty database
+- Archif folder : is the container of program.
+- Archify.jar : is the excutible program.
+- Documents folder : contain to other folder ENV folder for sended document And REC folder for the receive document.
+- DataBase folder : contain db.db file wich is the sqlite3 database and db-empty.db file wich is an empty database.
 
 ## Warning:
 - Any modefication in the program  container  **archify** will effect on program.
+- 
+## ِcontact us:
+- **email:** oussamanh7@gmail.com 
+- **phone:** +213696900164
+- **lindekin:** https://www.linkedin.com/in/oussamanahnah/
+- **fb:** https://www.facebook.com/osma0k/
 # أرشيفي
-السلام عليكم ، تم إعداد برنامج Archify بواسطة أسامة نحناح لأرشيف المستندات المرسلة والمحفوظة ، مع خصائص مثل عمليات البحث المتقدمة وتصدير قائمة EXEL.
+السلام عليكم ، تم إعداد برنامج Archify بواسطة أسامة نحناح لأرشيف المستندات المرسلة والمستقبلة ، مع خصائص مثل عمليات البحث المتقدمة وتصدير قائمة EXEL.
 
 المتطلبات:
 - جي دي كاي 18
@@ -73,5 +79,10 @@ D -->  l(db_empty)
 
 ## تحذير:
 - أي تعديل في حاوية البرنامج "archify" سيؤثر على البرنامج.
+- ## ِتواصل معنا:
+- **email:** oussamanh7@gmail.com 
+- **phone:** +213696900164
+- **lindekin:** https://www.linkedin.com/in/oussamanahnah/
+- **fb:** https://www.facebook.com/osma0k/.
 
 
