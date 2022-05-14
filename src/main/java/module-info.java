@@ -3,6 +3,7 @@ module oussama.nahnah.archify {
     requires javafx.fxml;
 
     requires org.apache.poi.poi;
+
     requires java.sql;
 
 

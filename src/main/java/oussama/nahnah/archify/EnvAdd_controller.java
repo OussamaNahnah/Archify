@@ -58,13 +58,10 @@ public class EnvAdd_controller implements Initializable {
     }
 
     public void setSendedObservableList(ObservableList<Sended> sendedObservableList) {
-        System.out.print("gg" + sendedObservableList.size());
         this.sendedObservableList = sendedObservableList;
     }
 
-    public static void shutdown() {
-        System.out.print("closed");
-    }
+
 
     @FXML
     void Env_func_add_save(ActionEvent event) throws SQLException, InterruptedException {
@@ -73,7 +70,7 @@ public class EnvAdd_controller implements Initializable {
         if (cleanreference != "") {
             if (this.Env_insert_date.getValue() != null) {
                 if (!((String)this.Env_insert_recipient.getValue()).toString().replace(" ", "").toLowerCase().equals("Choisi Déstinatia re".replace(" ", "").toLowerCase())) {
-                    System.out.println("else");
+
                     if (!this.Env_insert_object.getText().isEmpty()) {
                             if (!this.Reference_Exiced(cleanreference)) {
                                 if (this.file != null) {
@@ -81,7 +78,7 @@ public class EnvAdd_controller implements Initializable {
                                 if (!idea.exists()) {
 
                                         if (this.file.length() != 0L) {
-                                            System.out.println("----");
+
                                             File var10001 = this.file;
                                             String var10002 = this.cleanStringSromSpecialCar(this.Env_insert_reference.getText());
                                             if (this.copyFile(var10001, var10002 + "." + this.fileExtension)) {
@@ -169,7 +166,7 @@ public class EnvAdd_controller implements Initializable {
         if (this.file != null) {
             this.fileName = this.file.getName();
             this.fileExtension = this.fileName.substring(this.fileName.lastIndexOf(".") + 1, this.file.getName().length());
-            System.out.println(">> fileExtension" + this.fileExtension);
+
             this.Env_insert_path.setText("Path:" + this.file.getPath());
         }
 
@@ -209,7 +206,7 @@ public class EnvAdd_controller implements Initializable {
     }
 
     private boolean copyFile(File file, String newname) {
-        System.out.println("ter");
+
 
         try {
             File dest = new File("Documents/ENV/" + newname);
@@ -225,7 +222,7 @@ public class EnvAdd_controller implements Initializable {
             alert.setHeaderText((String)null);
             alert.setContentText(var5.getMessage());
             alert.showAndWait();
-            System.out.println("message:" + var5.getMessage());
+
         }
 
         return false;

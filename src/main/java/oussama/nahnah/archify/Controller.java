@@ -219,7 +219,6 @@ public class Controller extends Application implements Initializable {
                 if (event.getClickCount() == 2 && !row.isEmpty()) {
                     Sended sended = (Sended)row.getItem();
                     this.openFILE(sended.getPath());
-                    System.out.println("Double click on: " + sended.getReference());
                 }
 
             });
@@ -268,7 +267,6 @@ public class Controller extends Application implements Initializable {
                 if (event.getClickCount() == 2 && !row.isEmpty()) {
                     Received sended = (Received)row.getItem();
                     this.openFILE(sended.getPath());
-                    System.out.println("Double click on: " + sended.getReference());
                 }
 
             });
@@ -376,11 +374,6 @@ public class Controller extends Application implements Initializable {
         envTempRec=envRec;
         envTempObj="";
         if (Env_search_TextField.getText().equals("")){
-            System.out.println();
-            System.out.println("*********************observable:"+Env_search_TextField.getText());
-
-            System.out.println("*********************oldValue:"+Env_search_TextField.getText());
-            System.out.println("*********************Env_search_TextField.getText():"+Env_search_TextField.getText());
             envTempType=true;
             envTempRef="";
             envTempDate=envDate;
@@ -494,7 +487,6 @@ public class Controller extends Application implements Initializable {
                     statement = connection.prepareStatement("DELETE FROM sended WHERE id = ?");
                     statement.setInt(1, sended.getId());
                     int deleted = statement.executeUpdate();
-                    System.out.println("del:" + deleted);
                     if (deleted == 0) {
                         Alert alert0 = new Alert(AlertType.INFORMATION);
                         alert0.setTitle("Information Dialog");
@@ -525,8 +517,6 @@ public class Controller extends Application implements Initializable {
                     }
 
                 }
-            } else {
-                System.out.println("annuler:");
             }
         } else {
             alert = new Alert(AlertType.INFORMATION);
@@ -553,7 +543,7 @@ public class Controller extends Application implements Initializable {
     }
 
     private void open_location(String path) {
-        System.out.println(System.getProperty("os.name"));
+     //   System.out.println(System.getProperty("os.name"));
         File filechkeck;
         Alert alert;
         if (System.getProperty("os.name").startsWith("Windows")) {
@@ -570,7 +560,6 @@ public class Controller extends Application implements Initializable {
                 alert.setHeaderText((String)null);
                 alert.setContentText(" File dose not exist");
                 alert.showAndWait();
-                System.out.println("File dose not exist");
             }
         } else if (System.getProperty("os.name").startsWith("Linux")) {
             filechkeck = new File(path);
@@ -586,7 +575,6 @@ public class Controller extends Application implements Initializable {
                 alert.setHeaderText((String)null);
                 alert.setContentText(" File dose not exist");
                 alert.showAndWait();
-                System.out.println("File dose not exist");
             }
         } else if (System.getProperty("os.name").startsWith("Mac")) {
             filechkeck = new File(path);
@@ -602,14 +590,13 @@ public class Controller extends Application implements Initializable {
                 alert.setHeaderText((String)null);
                 alert.setContentText(" File dose not exist");
                 alert.showAndWait();
-                System.out.println("File dose not exist");
             }
         }
 
     }
 
     private void openFILE(String path) {
-        System.out.println(System.getProperty("os.name"));
+   //     System.out.println(System.getProperty("os.name"));
         File filechkeck = new File(path);
         if (filechkeck.exists()) {
             try {
@@ -623,7 +610,6 @@ public class Controller extends Application implements Initializable {
             alert.setHeaderText((String)null);
             alert.setContentText(" File dose not exist");
             alert.showAndWait();
-            System.out.println("File dose not exist");
         }
 
     }
@@ -658,34 +644,27 @@ public class Controller extends Application implements Initializable {
                 row.createCell(2).setCellValue(((Sended)sendedObservableValue.get(i)).getDate());
                 row.createCell(3).setCellValue(((Sended)sendedObservableValue.get(i)).getRecipient());
                 row.createCell(4).setCellValue(((Sended)sendedObservableValue.get(i)).getObject());
-                HyperlinkType var10001 = HyperlinkType.DOCUMENT;
+             //   HyperlinkType var10001 = HyperlinkType.DOCUMENT;
                 Hyperlink link = helper.createHyperlink(HyperlinkType.FILE);
                 link.setAddress(((Sended)sendedObservableValue.get(i)).getPath());
                 row.createCell(5).setHyperlink(link);
                 row.createCell(5).setCellValue("link");
             }
 
-            File file = new File("workbook.xls");
-            if (file!=null) {
-                boolean fileIsNotLocked = file.renameTo(file);
-                if (fileIsNotLocked) {
-                    FileOutputStream fileOut = new FileOutputStream("workbook.xls");
-                    workbook.write(fileOut);
-                    fileOut.close();
-                    this.openFILE("workbook.xls");
-                } else {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("workbook.xls");
+            workbook.write(fileOut);
+            fileOut.close();
+            this.openFILE("workbook.xls");
+        }catch (Exception e){
+
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
                     alert.setHeaderText((String)null);
-                    alert.setContentText("Le document déjà ouvrir");
+                    alert.setContentText(e.getMessage());
                     alert.showAndWait();
                 }
-            } else {
-                FileOutputStream fileOut = new FileOutputStream("workbook.xls");
-                workbook.write(fileOut);
-                fileOut.close();
-                this.openFILE("workbook.xls");
-            }
+
         } else {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
@@ -722,132 +701,6 @@ public class Controller extends Application implements Initializable {
         return years;
     }
 
-   /* private Node createPage_Sea_all(int pageIndex) {
-        try {
-            this.from = pageIndex * this.itemPerPage;
-            this.to = this.itemPerPage;
-            Database database = new Database();
-            ObservableList sendedObservableList = database.Env_getSendedSeaAll(this.from, this.to, this.Env_search_TextField.getText());
-            this.Env_table.setItems(sendedObservableList);
-        } catch (SQLException var4) {
-            var4.printStackTrace();
-        }
-
-        return this.Env_table;
-    }
-
-    private Node createPage_Sea_object(int pageIndex) {
-        try {
-            this.from = pageIndex * this.itemPerPage;
-            this.to = this.itemPerPage;
-            Database database = new Database();
-            ObservableList sendedObservableList = database.Env_getSendedSeaObject(this.from, this.to, this.Env_search_TextField.getText());
-            this.Env_table.setItems(sendedObservableList);
-        } catch (SQLException var4) {
-            var4.printStackTrace();
-        }
-
-        return this.Env_table;
-    }
-
-    private Node createPage_Sea_recipient(int pageIndex) {
-        try {
-            this.from = pageIndex * this.itemPerPage;
-            this.to = this.itemPerPage;
-            Database database = new Database();
-            ObservableList sendedObservableList = database.Env_getSendedSeaRecipient(this.from, this.to, this.Env_search_TextField.getText());
-            this.Env_table.setItems(sendedObservableList);
-        } catch (SQLException var4) {
-            var4.printStackTrace();
-        }
-
-        return this.Env_table;
-    }
-
-    private Node createPage_Sea_date(int pageIndex) {
-        try {
-            this.from = pageIndex * this.itemPerPage;
-            this.to = this.itemPerPage;
-            Database database = new Database();
-            ObservableList sendedObservableList = database.Env_getSendedSeaDate(this.from, this.to, this.Env_search_TextField.getText());
-            this.Env_table.setItems(sendedObservableList);
-        } catch (SQLException var4) {
-            var4.printStackTrace();
-        }
-
-        return this.Env_table;
-    }
-
-    private Node createPage_Sea_Reference(int pageIndex) {
-        try {
-            this.from = pageIndex * this.itemPerPage;
-            this.to = this.itemPerPage;
-            Database database = new Database();
-            ObservableList sendedObservableList = database.Env_getSendedSeaReference(this.from, this.to, this.Env_search_TextField.getText());
-            this.Env_table.setItems(sendedObservableList);
-        } catch (SQLException var4) {
-            var4.printStackTrace();
-        }
-
-        return this.Env_table;
-    }
-
-    private Node createPage_year_category(int pageIndex) {
-        try {
-            this.from = pageIndex * this.itemPerPage;
-            this.to = this.itemPerPage;
-            Database database = new Database();
-            ObservableList sendedObservableList = database.Env_getSendedByYearCategory(this.from, this.to, (String)this.Env_dropdown_year.getValue(), (String)this.Env_dropdown_category.getValue());
-            this.Env_table.setItems(sendedObservableList);
-        } catch (SQLException var4) {
-            var4.printStackTrace();
-        }
-
-        return this.Env_table;
-    }
-
-    private Node createPage_category(int pageIndex) {
-        try {
-            this.from = pageIndex * this.itemPerPage;
-            this.to = this.itemPerPage;
-            Database database = new Database();
-            ObservableList sendedObservableList = database.Env_getSendedByCategory(this.from, this.to, (String)this.Env_dropdown_category.getValue());
-            this.Env_table.setItems(sendedObservableList);
-        } catch (SQLException var4) {
-            var4.printStackTrace();
-        }
-
-        return this.Env_table;
-    }
-
-    private Node createPage_year(int pageIndex) {
-        try {
-            this.from = pageIndex * this.itemPerPage;
-            this.to = this.itemPerPage;
-            Database database = new Database();
-            ObservableList sendedObservableList = database.Env_getSendedByYear(this.from, this.to, (String)this.Env_dropdown_year.getValue());
-            this.Env_table.setItems(sendedObservableList);
-        } catch (SQLException var4) {
-            var4.printStackTrace();
-        }
-
-        return this.Env_table;
-    }
-*/
-   /* private Node createPage(int pageIndex) {
-        try {
-            this.from = pageIndex * this.itemPerPage;
-            this.to = this.itemPerPage;
-            Database database = new Database();
-            ObservableList sendedObservableList = null;
-            sendedObservableList = database.Env_getSended(this.from, this.to);
-            this.Env_table.setItems(sendedObservableList);
-        } catch (SQLException var4) {
-            var4.printStackTrace();
-        }
-
-        return this.Env_table;
-    }*/
 
     private Node envCreatePageSearch(int pageIndex) {
         try {
@@ -943,14 +796,26 @@ public class Controller extends Application implements Initializable {
                 row.createCell(3).setCellValue(((Received)ReceivedObservableValue.get(i)).getDate());
                 row.createCell(4).setCellValue(((Received)ReceivedObservableValue.get(i)).getSender());
                 row.createCell(5).setCellValue(((Received)ReceivedObservableValue.get(i)).getObject());
-                HyperlinkType var10001 = HyperlinkType.DOCUMENT;
+             //   HyperlinkType var10001 = HyperlinkType.DOCUMENT;
                 Hyperlink link = helper.createHyperlink(HyperlinkType.FILE);
                 link.setAddress(((Received)ReceivedObservableValue.get(i)).getPath());
                 row.createCell(6).setHyperlink(link);
                 row.createCell(6).setCellValue("link");
             }
+            try {
+                FileOutputStream fileOut = new FileOutputStream("workbook.xls");
+                workbook.write(fileOut);
+                fileOut.close();
+                this.openFILE("workbook.xls");
+            }catch (Exception e){
 
-            File file = new File("workbook.xls");
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText((String)null);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+            }
+          /*  File file = new File("workbook.xls");
             if (file!=null) {
                 boolean fileIsNotLocked = file.renameTo(file);
                 if (fileIsNotLocked) {
@@ -970,7 +835,7 @@ public class Controller extends Application implements Initializable {
                 workbook.write(fileOut);
                 fileOut.close();
                 this.openFILE("workbook.xls");
-            }
+            }*/
         } else {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
@@ -1040,7 +905,6 @@ public class Controller extends Application implements Initializable {
                     statement = connection.prepareStatement("DELETE FROM received WHERE id = ?");
                     statement.setInt(1, received.getId());
                     int deleted = statement.executeUpdate();
-                    System.out.println("del:" + deleted);
                     if (deleted == 0) {
                         Alert alert0 = new Alert(AlertType.INFORMATION);
                         alert0.setTitle("Information Dialog");
@@ -1074,8 +938,6 @@ public class Controller extends Application implements Initializable {
                     }
 
                 }
-            } else {
-                System.out.println("annuler:");
             }
         } else {
             alert = new Alert(AlertType.INFORMATION);
@@ -1099,7 +961,7 @@ public class Controller extends Application implements Initializable {
         this.pageCount = this.count / this.itemPerPage + 1;
         this.Env_pagination.setPageCount(this.pageCount);
         this.Env_pagination.setPageFactory(this::createPage);*/
-       // getEnv();
+        getEnv();
     }
 
     public void Rec_fun_refresh(ActionEvent actionEvent) {
@@ -1108,7 +970,7 @@ public class Controller extends Application implements Initializable {
         this.Rec_dropdown_type.getSelectionModel().selectFirst();
         this.Rec_search_TextField.setText("");
         this.Rec_chockbox_all.setSelected(true);
-   // getRec();
+    getRec();
     }
 
     public void Rec_fun_setfile(ActionEvent actionEvent) throws SQLException {
@@ -1187,18 +1049,8 @@ public class Controller extends Application implements Initializable {
 
         String fileName =  file.getName();
         String fileExtension =  fileName.substring( fileName.lastIndexOf(".") + 1,  file.getName().length());
-        System.out.println("choosed:"+"Documents/ENV/" +cleanStringSromSpecialCar(sended.reference )+ "." +fileExtension);
-
 
         if ( copyFile(file,"Documents/ENV/" +cleanStringSromSpecialCar(sended.reference )+ "." +fileExtension)){
-
-
-
-
-
-
-
-            System.out.println("**************");
             Database database = new Database();
             Connection connection = database.getDBConnection();
             PreparedStatement ps = null;
@@ -1210,8 +1062,6 @@ public class Controller extends Application implements Initializable {
                 ps.setInt(2, sended.getId());
                 int updated = ps.executeUpdate();
                 if (updated == 1) {
-                    System.out.println("updateded ");
-
                     int index = IntStream.range(0,Env_table.getItems().size()).filter((i) -> {
                         return ((Sended)Env_table.getItems().get(i)).getId() == sended.getId();
                     }).findFirst().orElse(-1);
@@ -1219,17 +1069,10 @@ public class Controller extends Application implements Initializable {
                         Env_table.getItems().remove(index);
                         Sended newsended =new Sended(sended.getId(), sended.getReference(),sended.getDate(),sended.getRecipient(),sended.getObject(),"Documents/ENV/" +cleanStringSromSpecialCar(sended.reference )+ "." +fileExtension);
                         newsended.setFrech(true);
-                        System.out.println();
-                        System.out.println("Le Path:"+newsended.getPath());
                         Env_table.getItems().add(index, newsended);
                     }
 
 
-
-
-
-                } else {
-                    System.out.print("Not updated");
                 }
             } catch (Exception var14) {
                 var14.printStackTrace();
@@ -1269,18 +1112,7 @@ public class Controller extends Application implements Initializable {
 
         String fileName =  file.getName();
         String fileExtension =  fileName.substring( fileName.lastIndexOf(".") + 1,  file.getName().length());
-        System.out.println("choosed:"+"Documents/REC/" +cleanStringSromSpecialCar(received.reference )+ "." +fileExtension);
-
-
         if ( copyFile(file,"Documents/REC/" +cleanStringSromSpecialCar(received.reference )+ "." +fileExtension)){
-
-
-
-
-
-
-
-            System.out.println("**************");
             Database database = new Database();
             Connection connection = database.getDBConnection();
             PreparedStatement ps = null;
@@ -1292,8 +1124,6 @@ public class Controller extends Application implements Initializable {
                 ps.setInt(2, received.getId());
                 int updated = ps.executeUpdate();
                 if (updated == 1) {
-                    System.out.println("updateded ");
-
                     int index = IntStream.range(0,Rec_table.getItems().size()).filter((i) -> {
                         return ((Received)Rec_table.getItems().get(i)).getId() == received.getId();
                     }).findFirst().orElse(-1);
@@ -1308,16 +1138,9 @@ public class Controller extends Application implements Initializable {
                                 received.getObject(),
                                 "Documents/REC/" +cleanStringSromSpecialCar(received.reference )+ "." +fileExtension);
                         newreceived.setFrech(true);
-                        System.out.println();
                         Rec_table.getItems().add(index, newreceived);
                     }
 
-
-
-
-
-                } else {
-                    System.out.print("Not updated");
                 }
             } catch (Exception var14) {
                 var14.printStackTrace();
@@ -1341,8 +1164,6 @@ public class Controller extends Application implements Initializable {
 
 }
     private boolean copyFile(File file, String newname) {
-        System.out.println("ter");
-
         try {
             File dest = new File(  newname);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
@@ -1357,7 +1178,6 @@ public class Controller extends Application implements Initializable {
             alert.setHeaderText((String)null);
             alert.setContentText(var5.getMessage());
             alert.showAndWait();
-            System.out.println("message:" + var5.getMessage());
         }
 
         return false;
@@ -1370,8 +1190,6 @@ public class Controller extends Application implements Initializable {
                 resultStr = resultStr + str.charAt(i);
             }
         }
-
-        System.out.println("String after removing special characters: " + resultStr);
         return resultStr;
     }
     void getEnv(){

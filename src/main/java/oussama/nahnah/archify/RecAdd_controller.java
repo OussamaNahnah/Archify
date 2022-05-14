@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.net.URL;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +19,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.util.ResourceBundle;
-import java.util.stream.IntStream;
 
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -61,7 +59,7 @@ public class RecAdd_controller implements Initializable {
     }
 
     public void setreceivedObservableList(ObservableList<Received> receivedObservableList) {
-        System.out.print("gg" + receivedObservableList.size());
+
         this.receivedObservableList = receivedObservableList;
     }
 
@@ -73,7 +71,7 @@ public class RecAdd_controller implements Initializable {
             if (this.Rec_insert_oldreference.getText() != "") {
                 if (this.Rec_insert_date.getValue() != null) {
                     if (!((String)this.Rec_insert_sender.getValue()).toString().replace(" ", "").toLowerCase().equals("Choisi l'expéditeur".replace(" ", "").toLowerCase())) {
-                        System.out.println("else");
+
                         if (!this.Rec_insert_object.getText().isEmpty()) {
                                 if (!this.Reference_Exiced(cleanreference)) {
                                     File idea = new File("Documents/REC/"+Rec_insert_category.getValue() + cleanreference + "." + this.fileExtension);
@@ -81,7 +79,7 @@ public class RecAdd_controller implements Initializable {
                                         if (!idea.exists()) {
 
                                             if (this.file.length() != 0L) {
-                                                System.out.println("----");
+
                                                 File var10001 = this.file;
                                                 String var10002 =Rec_insert_category.getValue() + this.cleanStringSromSpecialCar(this.Rec_insert_reference.getText());
                                                 if (this.copyFile(var10001, var10002 + "." + this.fileExtension)) {
@@ -206,7 +204,7 @@ public class RecAdd_controller implements Initializable {
                 return dateString != null && !dateString.trim().isEmpty() ? LocalDate.parse(dateString, this.dateTimeFormatter) : null;
             }
         });
-        this.Rec_insert_reference.setText("PSG/DP/");
+     /*   this.Rec_insert_reference.setText("PSG/DP/");
         Platform.runLater(() -> {
             int carretPosition = this.Rec_insert_reference.getCaretPosition();
             if (this.Rec_insert_reference.getAnchor() != carretPosition) {
@@ -214,12 +212,12 @@ public class RecAdd_controller implements Initializable {
                 this.Rec_insert_reference.positionCaret(8);
             }
 
-        });
+        });*/
         this.Rec_insert_date.setValue(LocalDate.now());
     }
 
     private boolean copyFile(File file, String newname) {
-        System.out.println("ter");
+
 
         try {
             File dest = new File("Documents/REC/"  + newname);
@@ -235,7 +233,6 @@ public class RecAdd_controller implements Initializable {
             alert.setHeaderText((String)null);
             alert.setContentText(var5.getMessage());
             alert.showAndWait();
-            System.out.println("message:" + var5.getMessage());
         }
 
         return false;

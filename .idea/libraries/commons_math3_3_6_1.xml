@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="commons-math3-3.6.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/poi-bin-5.2.1-20220224/poi-bin-5.2.1/lib/commons-math3-3.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../poi-bin-5.2.2-20220312/New folder/commons-math3-3.6.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

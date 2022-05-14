@@ -10,15 +10,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="539.0" prefWidth="730.0" stylesheets="@Application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oussama.nahnah.archify.RecMod_controller">
+<AnchorPane prefHeight="539.0" prefWidth="730.0" stylesheets="@Application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oussama.nahnah.archify.RecMod_controller">
    <children>
       <Label alignment="CENTER" layoutX="337.0" layoutY="30.0" text="Ajouter Un Envoi" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0" />
-      <ChoiceBox fx:id="Rec_mod_category" layoutX="164.0" layoutY="192.0" prefHeight="25.0" prefWidth="466.0" value="SET1" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="110.0">
+      <ChoiceBox fx:id="Rec_mod_category" layoutX="164.0" layoutY="192.0" prefHeight="25.0" prefWidth="466.0" value="SET" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="110.0">
          <items>
             <FXCollections fx:factory="observableArrayList">
-               <String fx:value="SET1" />
-               <String fx:value="SET2" />
-               <String fx:value="SET3" />
+               <String fx:value="SET" />
+               <String fx:value="IGES" />
+               <String fx:value="ANESRIF" />
             </FXCollections>
          </items>
       </ChoiceBox>
@@ -55,6 +55,6 @@
       </ChoiceBox>
       <DatePicker fx:id="Rec_mod_date" editable="false" layoutX="93.0" layoutY="153.0" promptText="date" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="260.0" />
       <TextArea fx:id="Rec_mod_object" layoutX="79.0" layoutY="255.0" prefHeight="40.0" prefWidth="530.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="360.0" />
-      <Label layoutX="99.0" layoutY="143.0" text="Ancien réferance" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="190.0" />
+      <Label layoutX="99.0" layoutY="143.0" text="Réferance d'exp" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="190.0" />
    </children>
 </AnchorPane>

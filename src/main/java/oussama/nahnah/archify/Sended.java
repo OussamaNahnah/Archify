@@ -6,7 +6,6 @@
 package oussama.nahnah.archify;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class Sended {

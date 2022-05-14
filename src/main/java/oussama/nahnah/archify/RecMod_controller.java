@@ -308,7 +308,7 @@ public class RecMod_controller implements Initializable {
     }
 
     void update(ActionEvent event) throws SQLException {
-        System.out.println("**************");
+
         Database database = new Database();
         Connection connection = database.getDBConnection();
         PreparedStatement ps = null;
@@ -334,7 +334,7 @@ public class RecMod_controller implements Initializable {
                     this.receivedObservableList.remove(index);
                     Received received = new Received(
                             this.modreceived.getId(),
-                            this.cleanStringSromSpecialCar(Rec_mod_category.getValue()+ "/"+this.Rec_mod_reference.getText()),
+                            Rec_mod_category.getValue()+ "/"+this.cleanStringSromSpecialCar(this.Rec_mod_reference.getText()),
                             this.Rec_mod_oldreference.getText().replace(" ", ""),
                             formatter.format((TemporalAccessor)this.Rec_mod_date.getValue()),
                             ((String)this.Rec_mod_sender.getValue()).toString(),

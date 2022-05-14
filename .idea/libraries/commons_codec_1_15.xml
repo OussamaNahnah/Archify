@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="commons-codec-1.15">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/poi-bin-5.2.1-20220224/poi-bin-5.2.1/lib/commons-codec-1.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../poi-bin-5.2.2-20220312/New folder/commons-codec-1.15.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

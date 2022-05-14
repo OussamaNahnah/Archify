@@ -59,7 +59,7 @@ public class EnvMod_controller implements Initializable {
     }
 
     public void setSendedObservableList(ObservableList<Sended> sendedObservableList) {
-        System.out.print("gg" + sendedObservableList.size());
+
         this.sendedObservableList = sendedObservableList;
     }
 
@@ -71,9 +71,6 @@ public class EnvMod_controller implements Initializable {
         this.Env_mod_object.setText(modSended.getObject());
     }
 
-    public static void shutdown() {
-        System.out.print("closed");
-    }
 
     @FXML
     void Env_func_update(ActionEvent event) throws SQLException {
@@ -89,14 +86,14 @@ public class EnvMod_controller implements Initializable {
             if (cleanreference != "") {
                 if (this.Env_mod_date.getValue() != null) {
                     if (!((String)this.Env_mod_recipient.getValue()).toString().replace(" ", "").toLowerCase().equals("Choisi Déstinatia re".replace(" ", "").toLowerCase())) {
-                        System.out.println("else");
+
                         if (!this.Env_mod_object.getText().isEmpty()) {
                             if (this.Env_mod_reference.getText().equals(this.modSended.getReference())) {
                                 this.update(event);
                             } else if (!this.Reference_Exiced(this.cleanStringSromSpecialCar(this.Env_mod_reference.getText()))) {
                                 this.update(event);
                             } else {
-                                System.out.println("/////////////// ");
+
                                 alert = new Alert(AlertType.INFORMATION);
                                 alert.setTitle("Information Dialog");
                                 alert.setHeaderText((String)null);
@@ -173,7 +170,7 @@ public class EnvMod_controller implements Initializable {
     }
 
     private boolean copyFile(File file, String newname) {
-        System.out.println("ter");
+
 
         try {
             File dest = new File("Documents/" + newname);
