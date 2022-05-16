@@ -1,7 +1,7 @@
 # Archify
 
 
-Assalam alaykoum , ** Program Archify **  is made by [Oussama Nahnah](https://www.linkedin.com/in/oussamanahnah/). for sended and reseived documents archif, with Features like : Advanced searchs and export EXEL list.
+Assalam alaykoum , [Archify](https://github.com/OussamaNahnah/Archify)  made by  [Oussama Nahnah](https://www.linkedin.com/in/oussamanahnah/), is software that allows you to manage your archive, transmit and receive documents, and perform advanced searches.It allows you to export your data as an Excel spreadsheet.  
 
 ![alt text](https://github.com/OussamaNahnah/Archify/blob/main/Snapshots/screen1.png)
 ![alt text](https://github.com/OussamaNahnah/Archify/blob/main/Snapshots/screen2.png)
@@ -36,8 +36,9 @@ D -->  l(db_empty)
 - DataBase folder : contain db.db file wich is the sqlite3 database and db-empty.db file wich is an empty database.
 
 ## Warning:
-- Any modefication in the program  container  **archify** will effect on program.
-- 
+-Any changes made to the program container **archify** will have an impact on the program.
+
+ 
 ## ِcontact us:
 - **email:** oussamanh7@gmail.com 
 - **phone:** +213696900164
