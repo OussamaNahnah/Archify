@@ -16,7 +16,7 @@ Assalam alaykoum , [Archify](https://github.com/OussamaNahnah/Archify)  made by 
 -  install jdk 18 (required).
 -  copy and extract **Archify zip** to a local destination (required).
 -  install excel (recommended).
--  sqlite browser (advanced).
+-  [sqlite browser]( https://sqlitebrowser.org/dl/)   (advanced).
 
 ## architecture
 ```mermaid
