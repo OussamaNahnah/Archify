@@ -9,13 +9,13 @@ Assalam alaykoum , [Archify](https://github.com/OussamaNahnah/Archify)  made by 
 ![alt text](https://github.com/OussamaNahnah/Archify/blob/main/Snapshots/screen4.png)
 
 ## requirements:
-- JDK 18
+- [JDK 18]( https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html) 
 - Exel
 
 ## installation setup:
 -  install jdk 18 (required).
--  install excel (recommended).
 -  copy the program folder **Archify** to local destination (required).
+-  install excel (recommended).
 -  sqlite browser (advanced).
 
 ## architecture
