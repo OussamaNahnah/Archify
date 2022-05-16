@@ -32,7 +32,7 @@ D -->  l(db_empty)
 ```
 - Archif folder : is the container of program.
 - Archify.jar : is the excutible program.
-- Documents folder : contain to other folder ENV folder for sended document And REC folder for the receive document.
+- Documents folder : contain to other folder ENV folder for transmited document And REC folder for the received document.
 - DataBase folder : contain db.db file wich is the sqlite3 database and db-empty.db file wich is an empty database used when starting over.
 
 ## Warning:
