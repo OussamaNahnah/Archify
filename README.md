@@ -11,9 +11,9 @@ Assalam alaykoum , [Archify](https://github.com/OussamaNahnah/Archify)  made by 
 
 ## installation setup:
 -  install [JDK 18]( https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html)  (required).
--  copy and extract **Archify zip** to a local destination (required).
+-  download **Archify.zip** from [here](https://github.com/OussamaNahnah/Archify/releases), extract then copy it to a local destination (required).
 -  install excel (recommended).
--  install [sqlite browser]( https://sqlitebrowser.org/dl/) (advanced) if u want to see the database file.
+-  install [sqlite browser]( https://sqlitebrowser.org/dl/) if u want to see the database file  (advanced).
 
 ## architecture
 ```mermaid
@@ -45,13 +45,9 @@ D -->  l(db_empty)
 # أرشيفي
 السلام عليكم ، تم إعداد برنامج Archify بواسطة أسامة نحناح لأرشيف المستندات المرسلة والمستقبلة ، مع خصائص مثل عمليات البحث المتقدمة وتصدير قائمة EXEL.
 
-المتطلبات:
-- جي دي كاي 18
-- إكسيل
-
 ## إعداد التثبيت:
 - تثبيت jdk 18 (مطلوب)
-- انقل ملف البرنامج  **Archify zip** إلى وجهة محلية ثم فك الضغط (مطلوب)
+- حمل ملف البرنامج  **Archify.zip** من [هنا](https://github.com/OussamaNahnah/Archify/releases) ،انقله إلى وجهة محلية ثم فك الضغط (مطلوب)
 - تثبيت اكسل (موصى به)
 - متصفح sqlite ادا كنت تريد تصفح ملف قاعدة البيانات (متقدم)
 
