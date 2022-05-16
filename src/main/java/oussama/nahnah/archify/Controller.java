@@ -652,10 +652,10 @@ public class Controller extends Application implements Initializable {
             }
 
         try {
-            FileOutputStream fileOut = new FileOutputStream("workbook.xls");
+            FileOutputStream fileOut = new FileOutputStream("tempExcel.xls");
             workbook.write(fileOut);
             fileOut.close();
-            this.openFILE("workbook.xls");
+            this.openFILE("tempExcel.xls");
         }catch (Exception e){
 
                     Alert alert = new Alert(AlertType.INFORMATION);
@@ -803,10 +803,10 @@ public class Controller extends Application implements Initializable {
                 row.createCell(6).setCellValue("link");
             }
             try {
-                FileOutputStream fileOut = new FileOutputStream("workbook.xls");
+                FileOutputStream fileOut = new FileOutputStream("tempExcel.xls");
                 workbook.write(fileOut);
                 fileOut.close();
-                this.openFILE("workbook.xls");
+                this.openFILE("tempExcel.xls");
             }catch (Exception e){
 
                 Alert alert = new Alert(AlertType.INFORMATION);
@@ -815,14 +815,14 @@ public class Controller extends Application implements Initializable {
                 alert.setContentText(e.getMessage());
                 alert.showAndWait();
             }
-          /*  File file = new File("workbook.xls");
+          /*  File file = new File("tempExcel.xls");
             if (file!=null) {
                 boolean fileIsNotLocked = file.renameTo(file);
                 if (fileIsNotLocked) {
-                    FileOutputStream fileOut = new FileOutputStream("workbook.xls");
+                    FileOutputStream fileOut = new FileOutputStream("tempExcel.xls");
                     workbook.write(fileOut);
                     fileOut.close();
-                    this.openFILE("workbook.xls");
+                    this.openFILE("tempExcel.xls");
                 } else {
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
@@ -831,10 +831,10 @@ public class Controller extends Application implements Initializable {
                     alert.showAndWait();
                 }
             } else {
-                FileOutputStream fileOut = new FileOutputStream("workbook.xls");
+                FileOutputStream fileOut = new FileOutputStream("tempExcel.xls");
                 workbook.write(fileOut);
                 fileOut.close();
-                this.openFILE("workbook.xls");
+                this.openFILE("tempExcel.xls");
             }*/
         } else {
             Alert alert = new Alert(AlertType.INFORMATION);
