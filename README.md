@@ -8,15 +8,12 @@ Assalam alaykoum , [Archify](https://github.com/OussamaNahnah/Archify)  made by 
 ![alt text](https://github.com/OussamaNahnah/Archify/blob/main/Snapshots/screen3.png)
 ![alt text](https://github.com/OussamaNahnah/Archify/blob/main/Snapshots/screen4.png)
 
-## requirements:
-- [JDK 18]( https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html) 
-- Exel
 
 ## installation setup:
--  install jdk 18 (required).
+-  install [JDK 18]( https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html)  (required).
 -  copy and extract **Archify zip** to a local destination (required).
 -  install excel (recommended).
--  [sqlite browser]( https://sqlitebrowser.org/dl/)   (advanced).
+-  install [sqlite browser]( https://sqlitebrowser.org/dl/) (advanced) if u want to see the database file.
 
 ## architecture
 ```mermaid
@@ -56,7 +53,7 @@ D -->  l(db_empty)
 - تثبيت jdk 18 (مطلوب)
 - انقل ملف البرنامج  **Archify zip** إلى وجهة محلية ثم فك الضغط (مطلوب)
 - تثبيت اكسل (موصى به)
-- متصفح sqlite (متقدم)
+- متصفح sqlite ادا كنت تريد تصفح ملف قاعدة البيانات (متقدم)
 
 ## هندسة معمارية
 ```mermaid
